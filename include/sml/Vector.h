@@ -18,15 +18,15 @@ public:
     }
   }
 
-  T& operator()(int row_idx) {
-    if (row_idx < 0 || ROWS <= row_idx) {
+  T& operator()(std::size_t row_idx) {
+    if (ROWS <= row_idx) {
       throw std::range_error("row index is out of range");
     }
     return this->data[row_idx];
   }
 
-  const T& operator()(int row_idx) const {
-    if (row_idx < 0 || ROWS <= row_idx) {
+  const T& operator()(std::size_t row_idx) const {
+    if (ROWS <= row_idx) {
       throw std::range_error("row index is out of range");
     }
     return this->data[row_idx];
